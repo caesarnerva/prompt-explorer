@@ -14,11 +14,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <div class="flex">
-            <h2 class="font-semibold">Prompt Explorer</h2>
-            <div class="flex justify-between">
+          <div className="flex">
+            <h2 className="font-semibold">Prompt Explorer</h2>
+            <div className="flex justify-between">
               <Link href="/builder">Builder</Link>
-              <Link href="/encyclopedia">Encyclopedia</Link>
+              <Link href="/guides">Guides</Link>
             </div>
           </div>
         </header>
