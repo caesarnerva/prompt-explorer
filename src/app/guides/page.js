@@ -30,9 +30,14 @@ export default function Guides() {
 
   return (
     <main>
-      <h1>Guides</h1>
-      <section className="lg:columns-4 md:columns-2">
-        {links.map((link) => <p key={link.id}>{link.link}</p>)}
+      <section className="lg:columns-3 md:columns-2">
+        {links.map((link) => 
+          <a href={link.link} target="_blank">
+            <div className='p-2 bg-zinc-900'>
+              <p key={link.id}>{link.link}</p>
+            </div>
+          </a>
+        )}
       </section>
     </main>
   )
