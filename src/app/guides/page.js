@@ -31,10 +31,10 @@ export default function Guides() {
   return (
     <main>
       <section className="lg:columns-3 md:columns-2">
-        {links.map((link) => 
-          <a href={link.link} target="_blank">
+        {links.map((link, i) => 
+          <a href={link.link} key={i} target="_blank">
             <div className='p-2 bg-zinc-900'>
-              <p key={link.id}>{link.link}</p>
+              <p>{link.link}</p>
             </div>
           </a>
         )}
