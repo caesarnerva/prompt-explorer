@@ -3,7 +3,7 @@
 import { OpenAI } from "langchain/llms/openai";
 
 // Next, React
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function Build() {
 
