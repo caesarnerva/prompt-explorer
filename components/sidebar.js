@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   return (
     <div className="flex flex-col gap-4 py-4 px-4 border-r-2 border-zinc-900">
-      <Link href='/builder/career-advice' className={pathname == `/builder/career-advice` ? 'p-2 border-solid border-2 border-zinc-800 rounded' : 'p-2 border-solid border-2 border-zinc-900 rounded'}>
+      <Link href='/builder/learn' className={pathname == `/builder/learn` ? 'p-2 border-solid border-2 border-zinc-800 rounded' : 'p-2 border-solid border-2 border-zinc-900 rounded'}>
         <h3 className='text-lg font-bold'>Learn a Discipline</h3>
         <p>Prod GPT4 to go deep on topics.</p>
       </Link>

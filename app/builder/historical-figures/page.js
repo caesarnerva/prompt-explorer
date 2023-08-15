@@ -1,5 +1,9 @@
+import Prompt from '../../../components/prompt'
+
 export default function HistoricalFigures () {
   return(
-    <p>historical events</p>
+    <>
+      <Prompt />
+    </>
   )
 }

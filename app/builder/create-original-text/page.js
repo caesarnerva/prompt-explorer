@@ -1,5 +1,9 @@
+import Prompt from '../../../components/prompt'
+
 export default function CreateOriginalText () {
   return(
-    <p>Create original text</p>
+    <>
+      <Prompt />
+    </>
   )
 }

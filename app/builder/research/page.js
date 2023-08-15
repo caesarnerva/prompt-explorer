@@ -1,5 +1,9 @@
+import Prompt from '../../../components/prompt'
+
 export default function Research () {
   return(
-    <p>research</p>
+    <>
+      <Prompt />
+    </>
   )
 }

@@ -1,6 +1,6 @@
 import Prompt from '../../../components/prompt'
 
-export default function Timetravel () {
+export default function LearnSomethingNew() {
   return(
     <>
       <Prompt />
