@@ -17,8 +17,10 @@ export default function Build() {
 
   const promptSeeker = async (e) => {
     e.preventDefault()
+
     // Turn loading on
     setIsEmpty(false)
+
     // OpenAI
     const model = new OpenAI({
       openAIApiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
