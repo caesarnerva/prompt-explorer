@@ -13,13 +13,14 @@ export default function Build() {
 
   // UX states
   const [isEmpty, setIsEmpty] = useState(true)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   const promptSeeker = async (e) => {
     e.preventDefault()
 
     // Turn loading on
     setIsEmpty(false)
+    setIsLoading(true)
 
     // OpenAI
     const model = new OpenAI({

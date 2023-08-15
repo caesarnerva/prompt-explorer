@@ -2,6 +2,10 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 
+// Components
+import TopNav from "../components/topnav"
+import Sidebar from "../components/sidebar"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -10,18 +14,11 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <header>
-          <div className="flex">
-            <h2 className="font-semibold">Prompt Explorer</h2>
-            <div className="flex justify-between">
-              <Link href="/builder">Builder</Link>
-              <Link href="/guides">Guides</Link>
-            </div>
-          </div>
-        </header>
+      <body>
+        <TopNav/>
         {children}
       </body>
     </html>
