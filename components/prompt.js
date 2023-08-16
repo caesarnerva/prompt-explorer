@@ -49,8 +49,7 @@ export default function Prompt({mainField}) {
       }
     });
     
-    const data = await response.text();
-    console.log(data)
+    const data = await response.text()
 
     // Set states
     setResponse(data)
