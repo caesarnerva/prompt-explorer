@@ -5,7 +5,7 @@ import { OpenAI } from "langchain/llms/openai";
 // Next, React
 import { useState } from "react"
 
-export default function Prompt() {
+export default function Prompt({mainField}) {
   // Prompt elements
   const [persona, setPersona] = useState("")
   const [response, setResponse] = useState("")
@@ -38,15 +38,27 @@ export default function Prompt() {
       Output: I want to become a pianist. Let's imagine that you are an accomplished concert pianist with decades of experience under your belt. Tell me about the profession and what it takes to excel in your field.
       
       Input: ${persona}
-      Output:
-      `
+      Output:`
 
-    const result = await model.call(
-      promptPrimitive
-    );
+      const response = await fetch("/api/test", {
+        method: "GET",
+        headers: {
+          'mode': 'cors',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        }
+      });
+      
+      const data = await response.text();
+      console.log(data)
+      // console.log(`data: `,data)
+
+    // const result = await model.call(
+    //   promptPrimitive
+    // );
 
     // Set states
-    setResponse(result)
+    setResponse(data)
     setIsLoading(false)
     }
     
@@ -54,7 +66,7 @@ export default function Prompt() {
   return (
     <>
       <form onSubmit={promptSeeker}>
-        <label>Persona:</label>
+        <label>{mainField}</label>
         <input
           type="text"
           className="bg-zinc-800"

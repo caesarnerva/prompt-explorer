@@ -3,7 +3,7 @@ import Prompt from '../../../components/prompt'
 export default function LearnSomethingNew() {
   return(
     <>
-      <Prompt />
+      <Prompt mainField={`What do you want to learn about?`} />
     </>
   )
 }
