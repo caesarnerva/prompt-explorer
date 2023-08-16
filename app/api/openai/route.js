@@ -8,12 +8,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export async function GET(request) {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `sing me a song`,
-    });
+  const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: `sing me a song`,
+  });
 
-    const openAIResponse = await completion.data.choices[0].text
- 
-    return new NextResponse(openAIResponse)
-  }
+  const openAIResponse = await completion.data.choices[0].text
+
+  return new NextResponse(openAIResponse)
+}

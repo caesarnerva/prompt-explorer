@@ -10,12 +10,10 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.32.0",
-    "ai": "^2.1.33",
     "autoprefixer": "10.4.14",
     "encoding": "^0.1.13",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
-    "langchain": "^0.0.126",
     "next": "13.4.12",
     "openai": "^3.3.0",
     "openai-edge": "^1.2.2",

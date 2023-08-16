@@ -1,6 +1,4 @@
 "use client"
-// AI
-import { OpenAI } from "langchain/llms/openai";
 
 // Next, React
 import { useState } from "react"
@@ -20,11 +18,6 @@ export default function Prompt({mainField}) {
     // Turn loading on
     setIsEmpty(false)
     setIsLoading(true)
-
-    // OpenAI
-    const model = new OpenAI({
-      openAIApiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-    });
 
     const promptPrimitive =
       `Use these examples to help me craft a prompt to learn about ${persona}. In your response, don't include the first line that lists the persona.
