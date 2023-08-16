@@ -1,22 +1,19 @@
-import { OpenAIApi, Configuration } from "openai";
+import { NextResponse } from 'next/server'
+import { OpenAIApi, Configuration } from "openai"
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-console.log(process.env.OPENAI_API_KEY)
-
 const openai = new OpenAIApi(configuration);
 
-export default async (req, res) => {
-  if (req.body.prompt !== undefined) {
+export async function GET(request) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${req.body.prompt}`,
+      prompt: `sing me a song`,
     });
 
-    res.status(200).json({ text: `${completion.data.choices[0].text}` });
-  } else {
-    res.status(400).json({ text: "No prompt provided." });
+    const openAIResponse = await completion.data.choices[0].text
+ 
+    return new NextResponse(openAIResponse)
   }
-};

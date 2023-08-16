@@ -40,22 +40,17 @@ export default function Prompt({mainField}) {
       Input: ${persona}
       Output:`
 
-      const response = await fetch("/api/test", {
-        method: "GET",
-        headers: {
-          'mode': 'cors',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        }
-      });
-      
-      const data = await response.text();
-      console.log(data)
-      // console.log(`data: `,data)
-
-    // const result = await model.call(
-    //   promptPrimitive
-    // );
+    const response = await fetch("/api/openai", {
+      method: "GET",
+      headers: {
+        'mode': 'cors',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+    
+    const data = await response.text();
+    console.log(data)
 
     // Set states
     setResponse(data)
