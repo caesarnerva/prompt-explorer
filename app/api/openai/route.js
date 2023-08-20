@@ -13,6 +13,7 @@ export async function GET(request) {
     prompt: `sing me a song`,
   });
 
+  console.log(`request is `, request)
   const openAIResponse = await completion.data.choices[0].text
 
   return new NextResponse(openAIResponse)

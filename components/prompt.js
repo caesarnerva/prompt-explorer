@@ -3,7 +3,7 @@
 // Next, React
 import { useState } from "react"
 
-export default function Prompt({mainField}) {
+export default function Prompt({children, props}) {
   // Prompt elements
   const [persona, setPersona] = useState("")
   const [response, setResponse] = useState("")
@@ -18,6 +18,8 @@ export default function Prompt({mainField}) {
     // Turn loading on
     setIsEmpty(false)
     setIsLoading(true)
+
+    const receivedData = props.userInput;
 
     const promptPrimitive =
       `Use these examples to help me craft a prompt to learn about ${persona}. In your response, don't include the first line that lists the persona.
@@ -39,7 +41,8 @@ export default function Prompt({mainField}) {
         'mode': 'cors',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
-      }
+      },
+      body: "hello"
     });
     
     const data = await response.text()
@@ -52,18 +55,7 @@ export default function Prompt({mainField}) {
 
   return (
     <>
-      <form onSubmit={promptSeeker}>
-        <label>{mainField}</label>
-        <input
-          type="text"
-          className="bg-zinc-800"
-          value={persona}
-          onChange={(event) => {
-            setPersona(event.target.value);
-          }}
-        />
-        <button type="submit">Create Prompt</button>
-      </form>
+      {children}
       {
         isEmpty ? <p>enter prompt specifics above</p> : isLoading ? <p>loading</p> : <p>{response}</p>
       }
