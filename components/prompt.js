@@ -3,7 +3,7 @@
 // Next, React
 import { useState } from "react"
 
-export default function Prompt({children, props}) {
+export default function Prompt() {
   // Prompt elements
   const [persona, setPersona] = useState("")
   const [response, setResponse] = useState("")
@@ -19,21 +19,21 @@ export default function Prompt({children, props}) {
     setIsEmpty(false)
     setIsLoading(true)
 
-    const receivedData = props.userInput;
+    // const receivedData = props.userInput;
 
-    const promptPrimitive =
-      `Use these examples to help me craft a prompt to learn about ${persona}. In your response, don't include the first line that lists the persona.
+    // const promptPrimitive = {prompt}
+      // `Use these examples to help me craft a prompt to learn about ${persona}. In your response, don't include the first line that lists the persona.
       
-      Examples:
+      // Examples:
     
-      Input: endocrinologist
-      Output: I want to learn about endocrinology. Please assume you're an authority of endocrinology and have agreed to meet me for coffee to discuss the nature and history of the discipline. Explain to me the basics of the endocrine system and your role as a health care specialist in your field.
+      // Input: endocrinologist
+      // Output: I want to learn about endocrinology. Please assume you're an authority of endocrinology and have agreed to meet me for coffee to discuss the nature and history of the discipline. Explain to me the basics of the endocrine system and your role as a health care specialist in your field.
       
-      Input: pianist
-      Output: I want to become a pianist. Let's imagine that you are an accomplished concert pianist with decades of experience under your belt. Tell me about the profession and what it takes to excel in your field.
+      // Input: pianist
+      // Output: I want to become a pianist. Let's imagine that you are an accomplished concert pianist with decades of experience under your belt. Tell me about the profession and what it takes to excel in your field.
       
-      Input: ${persona}
-      Output:`
+      // Input: ${persona}
+      // Output:`
 
     const response = await fetch("/api/openai", {
       method: "GET",
@@ -41,8 +41,8 @@ export default function Prompt({children, props}) {
         'mode': 'cors',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
-      },
-      body: "hello"
+        'userprompt': 'what is the answer to the meaning of life?'
+      }
     });
     
     const data = await response.text()
@@ -55,7 +55,18 @@ export default function Prompt({children, props}) {
 
   return (
     <>
-      {children}
+       <form onSubmit={promptSeeker}>
+        <label>shit</label>
+        <input
+          type="text"
+          className="bg-zinc-800"
+          value={persona}
+          onChange={(event) => {
+            setPersona(event.target.value);
+          }}
+        />
+        <button type="submit">Create Prompt</button>
+      </form>
       {
         isEmpty ? <p>enter prompt specifics above</p> : isLoading ? <p>loading</p> : <p>{response}</p>
       }
