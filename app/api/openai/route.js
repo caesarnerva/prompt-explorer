@@ -10,11 +10,11 @@ const openai = new OpenAIApi(configuration);
 export async function GET(request) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: request.headers['userprompt'],
+    prompt: request.headers.get('userPrompt'),
   });
 
   console.log(`request is `, request)
-  console.log(`userprompt is `,request.headers.mode)
+  console.log(`userprompt is `,request.headers.get('userPrompt'))
   const openAIResponse = await completion.data.choices[0].text
 
   return new NextResponse(openAIResponse)
