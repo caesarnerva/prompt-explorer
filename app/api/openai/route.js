@@ -10,6 +10,7 @@ const openai = new OpenAIApi(configuration);
 export async function GET(request) {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
+    max_tokens: 70,
     prompt: request.headers.get('userPrompt'),
   });
 
